@@ -405,7 +405,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   contentContainer: {
-    paddingBottom: 32,
+    paddingBottom: 280,
   },
   saveButton: {
     fontSize: 16,

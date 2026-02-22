@@ -2,13 +2,16 @@ import React from "react";
 import { StyleProp, ViewStyle } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
-const DEFAULT_EXTRA_HEIGHT = 80;
+/** Extra space above keyboard. Kept moderate so mid-form fields (e.g. Notes) don't scroll off the top. */
+const DEFAULT_EXTRA_HEIGHT = 160;
 
 interface KeyboardAwareScreenProps {
   children: React.ReactNode;
   style?: StyleProp<ViewStyle>;
   contentContainerStyle?: StyleProp<ViewStyle>;
   showsVerticalScrollIndicator?: boolean;
+  /** Override for long forms where the last field (e.g. current weight) needs more clearance above the keyboard. */
+  extraKeyboardHeight?: number;
 }
 
 /**
@@ -20,14 +23,16 @@ export default function KeyboardAwareScreen({
   style,
   contentContainerStyle,
   showsVerticalScrollIndicator = false,
+  extraKeyboardHeight,
 }: KeyboardAwareScreenProps) {
+  const extra = extraKeyboardHeight ?? DEFAULT_EXTRA_HEIGHT;
   return (
     <KeyboardAwareScrollView
       style={style}
       contentContainerStyle={contentContainerStyle}
       enableOnAndroid={true}
-      extraScrollHeight={DEFAULT_EXTRA_HEIGHT}
-      extraHeight={DEFAULT_EXTRA_HEIGHT}
+      extraScrollHeight={extra}
+      extraHeight={extra}
       keyboardShouldPersistTaps="handled"
       showsVerticalScrollIndicator={showsVerticalScrollIndicator}
     >

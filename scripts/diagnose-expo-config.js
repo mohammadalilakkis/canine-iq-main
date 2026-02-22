@@ -1,5 +1,5 @@
 /**
- * Debug: capture full output of npx expo config --json for EAS build failure.
+ * Debug: capture full output of bunx expo config --json for EAS build failure.
  * Writes one NDJSON line to debug-e5dd8f.log.
  */
 const { spawnSync } = require('child_process');
@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 
 const logPath = path.join(__dirname, '..', 'debug-e5dd8f.log');
-const result = spawnSync('npx', ['expo', 'config', '--json'], {
+const result = spawnSync('bunx', ['expo', 'config', '--json'], {
   cwd: path.join(__dirname, '..'),
   encoding: 'utf8',
   shell: true,
@@ -17,7 +17,7 @@ const entry = {
   id: 'log_expo_config',
   timestamp: Date.now(),
   location: 'scripts/diagnose-expo-config.js',
-  message: 'npx expo config --json result',
+  message: 'bunx expo config --json result',
   data: {
     exitCode: result.status,
     signal: result.signal,
