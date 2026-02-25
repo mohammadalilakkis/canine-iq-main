@@ -10,7 +10,8 @@
     "start-web:expo": "expo start --web",
     "start-web-dev": "DEBUG=expo* bunx rork start -p xxawl6of4k0dloss8kgvq --web --tunnel",
     "lint": "expo lint",
-    "postinstall": "bun scripts/patch-metro-config.js"
+    "postinstall": "bun scripts/patch-metro-config.js",
+    "create-zip": "powershell -ExecutionPolicy Bypass -File scripts/create-zip.ps1"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",

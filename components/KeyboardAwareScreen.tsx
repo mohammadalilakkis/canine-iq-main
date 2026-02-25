@@ -2,8 +2,8 @@ import React from "react";
 import { StyleProp, ViewStyle } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
-/** Extra space above keyboard. Kept moderate so mid-form fields (e.g. Notes) don't scroll off the top. */
-const DEFAULT_EXTRA_HEIGHT = 160;
+/** Extra space above keyboard. 200 gives good clearance on most devices/keyboards (Option A hardening). */
+const DEFAULT_EXTRA_HEIGHT = 200;
 
 interface KeyboardAwareScreenProps {
   children: React.ReactNode;
